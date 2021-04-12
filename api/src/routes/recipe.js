@@ -1,12 +1,12 @@
 const {Router} = require('express');
+const {getAllRecipes, addRecipe} = require('../Controllers/recipe')
 const router = Router();
 
 
 
-router.get ('/', (req, res)=>{
-    res.send ('holaaa soy coco')
-});
-
-
+router.get('/', getAllRecipes);
+router.post('/', addRecipe);
 
 module.exports = router;
+
+
