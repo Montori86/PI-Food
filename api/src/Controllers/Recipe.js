@@ -36,9 +36,17 @@ async function getAllRecipes(req, res, next) {
   
   }
 
+ async function getRecipesForId (req, res, next) {
+  let id = req.params.idRecipe
+  const recipeApi = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}&addRecipeInformation=true`
+  );
+  res.send(recipeApi.data)
+ }
 
 
 module.exports = {
   getAllRecipes,
   addRecipe,
+  getRecipesForId
 };
