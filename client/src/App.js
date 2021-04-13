@@ -1,10 +1,19 @@
 import './App.css';
+import React from "react";
+
+
+
+
+import { Route } from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Food</h1>
-    </div>
+      <React.Fragment>
+        
+          <Route exact path="/" component={Buscador} />
+    
+      </React.Fragment>
   );
 }
 
