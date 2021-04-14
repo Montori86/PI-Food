@@ -1,60 +1,64 @@
-const { Recipe } = require("../db");
+const { Recipe, Diet } = require("../db.js");
 const axios = require("axios");
 const { v4: uuidv4 } = require("uuid");
 const { response } = require("express");
-const Diet = require("../models/Diet");
+// const Diet = require("../models/Diet.js");
 
 const { API_KEY } = process.env;
 
 async function addRecipe(req, res, next) {
-  let { name, description, rating, healthyRating, instructions, diets } = req.body;
+  let {
+    name,
+    description,
+    rating,
+    healthyRating,
+    instructions,
+    diets,
+  } = req.body;
   if (name && description && diets.length > 0) {
-   let  newRecipe = await Recipe.create({
+    let newRecipe = await Recipe.create({
       name,
       id: uuidv4(),
       description,
       rating,
       healthyRating,
-      instructions
-      
-      });
-    diets.forEach(async diet=> {
-    let idDiet = await Diet.findOne({
-        where:{
-          name:diet
+      instructions,
+    });    
+    diets.forEach(async diet => {
+      if (Diet.findOrCreate({where: {name: diet}})){
+      let idDiet= await Diet.findOne({
+        where: {
+          name: diet
         }
-        
       })
-      
-      await newRecipe.addDiet(idDiet)// diet viene el mismo nombre que en la base de datos
+      await newRecipe.addDiet(idDiet)
+      }
     })
 
     res.send("Recipe added");
-  
-  
-  }else{
+  } else {
     res.status(400).send("Obligatory completed");
   }
 }
 
 async function getAllRecipes(req, res, next) {
   let name = req.query.name;
-  if (name){
-  const recipeDB = await Recipe.findAll({
-    where: {
-      name: name,
-    },
-  });
-  const recipeApi = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${name}&limit=100`
-  );
-  res.status(200).send(recipeDB.concat(recipeApi.data.results));
-}else{
-  const recipeApi = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}`
-  );
-  res.status(200).send(recipeApi.data.results);
-}
+  if (name) {
+    const recipeDB = await Recipe.findAll({
+      where: {
+        name: name,
+      },
+    });
+    const recipeApi = await axios.get(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${name}&limit=100`
+    );
+    res.status(200).send(recipeDB.concat(recipeApi.data.results));
+  } else {
+    const recipeApi = await axios.get(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}`
+    );
+    res.status(200).send(recipeApi.data.results);
+  }
 }
 
 async function getRecipesForId(req, res, next) {

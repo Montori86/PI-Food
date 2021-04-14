@@ -1,22 +1,11 @@
-const { DataTypes, UUID } = require('sequelize');
-const Recipe= require('./Recipe')
+const { DataTypes } = require("sequelize");
+const Recipe = require("./Recipe.js");
 
-
-
-
-
-
-
-module.exports = (sequelize,) => {
-  
-
-const Diet= sequelize.define('diet', {
-        id: {
-          type: UUID,
-          primaryKey: true,
-        },
-       name: {
-      type: DataTypes.STRING
-    }
-  })
-}
+module.exports = (sequelize) => {
+  sequelize.define("diet", {
+    name: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
+  });
+};
