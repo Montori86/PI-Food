@@ -1,12 +1,12 @@
-// const {Router} = require('express');
-// const {getAllDiets} = require('../Controllers/diet')
-// const router = Router();
+const {Router} = require('express');
+const {getAllDiets} = require('../Controllers/diet')
+const router = Router();
 
 
 
 
-// router.get ('/', getAllDiets);
-// // router.post ('/', addDiet);
+router.get ('/', getAllDiets);
 
 
-// module.exports = router;
+
+module.exports = router;

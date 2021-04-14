@@ -2,6 +2,7 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
+
 const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_NAME
 
@@ -37,20 +38,11 @@ const { Recipe, Diet } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-Recipe.belongsToMany(Diet, {
-  through:'Int_Table_Food',
-  foreignKey: {
-    name: 'recipeId',
-    allowNull: false,
-  }
-});
-Diet.belongsToMany(Recipe, {
-  through:'Int_Table_Food',
-  foreignKey: {
-    name: 'dietId',
-    allowNull: false,
-  }
-});
+Recipe.belongsToMany(Diet, {through: 'int_diet'})
+
+
+Diet.belongsToMany(Recipe, {through: 'int_diet'})
+
 
 
 module.exports = {
