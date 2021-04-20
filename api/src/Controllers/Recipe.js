@@ -50,12 +50,12 @@ async function getAllRecipes(req, res, next) {
       },
     });
     const recipeApi = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${name}&limit=100`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${name}&addRecipeInformation=true`
     );
     res.status(200).send(recipeDB.concat(recipeApi.data.results));
   } else {
     const recipeApi = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`
     );
     res.status(200).send(recipeApi.data.results);
   }
@@ -86,7 +86,7 @@ async function getRecipesForId(req, res, next) {
       dishType: recipeApi.data.dishType,
       diet: recipeApi.data.diets,
       description: recipeApi.data.summary,
-      healthyRating: recipeApi.data.healthyRating,
+      healthScore: recipeApi.data.healthScore,
       steps: getSteps(),
     };
     res.json(card);

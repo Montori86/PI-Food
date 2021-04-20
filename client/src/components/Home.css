@@ -1,0 +1,14 @@
+
+div {
+    display: block;
+}
+body {
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    font-family: 'Roboto Condensed';
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+    background: #fff;
+}
