@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipes, getDiet } from "../../src/Redux/actions.js";
-import { NavLink } from "react-router-dom";
+
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -64,7 +64,7 @@ export default function Home() {
         <div >
           <label>Ordenar por: </label>
           <select value={order} onChange={(e) => {setOrder(e.target.value); }}>
-            <option value=""></option>
+            <option value="">Options</option>
             <option value="AZ">Nombre ↑</option>
             <option value="ZA">Nombre ↓</option>
             <option value="MAX">Puntuacion ↑</option>
