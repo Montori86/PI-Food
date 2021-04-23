@@ -7,28 +7,24 @@ const { response } = require("express");
 const { API_KEY } = process.env;
 
 async function addRecipe(req, res, next) {
-  let {
-    name,
-    description,
-    rating,
-    healthyRating,
-    instructions,
-    diets,
-  } = req.body;
-  if (name && description && diets.length > 0) {
+  console.log(req.body)
+  const {title, dishType, description, healthScore, steps, diets} = req.body;
+  if (title && description && diets.length > 0) {
     let newRecipe = await Recipe.create({
-      name,
+      
       id: uuidv4(),
+      title,
+      dishType,      
       description,
-      rating,
-      healthyRating,
-      instructions,
+      healthScore,
+      steps,
+      
     });    
     diets.forEach(async diet => {
-      if (Diet.findOrCreate({where: {name: diet}})){
+      if (Diet.findOrCreate({where: {name: diets}})){
       let idDiet= await Diet.findOne({
         where: {
-          name: diet
+          name: diets
         }
       })
       await newRecipe.addDiet(idDiet)
@@ -43,12 +39,23 @@ async function addRecipe(req, res, next) {
 
 async function getAllRecipes(req, res, next) {
   let name = req.query.name;
+  
   if (name) {
     const recipeDB = await Recipe.findAll({
       where: {
-        name: name,
+        title: name,
       },
-    });
+      include: [Diet]
+    })
+ console.log(recipeDB)
+    // console.log(recipeDB[1].dataValues.diets[0].dataValues.name)
+    // recipeDB?.forEach(e => {
+    //   let aux= e.dataValues.diets?.map((i) => {
+    //     return i.dataValues.name
+    //   })
+    //   e.dataValues.diets= aux 
+    
+    // });
     const recipeApi = await axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${name}&addRecipeInformation=true`
     );

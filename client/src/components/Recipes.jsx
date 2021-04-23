@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
+import axios from 'axios'
 import './Recipes.css'
 
 export default function Recipes() {
-  const arrayDiets = useSelector((state) => state.diets);
+ 
 
   const [input, setInput] = useState({
     title: "",
@@ -13,14 +14,29 @@ export default function Recipes() {
     healthScore: "",
     steps: "",
   });
-  console.log(input)
+  
   const [diets, setDiets] = useState({    
     diets: []
   })
 
+
+  
  
 
-  function handleSubmit(e) {}
+ async function handleSubmit(e) {
+    var obj = {}    
+    await axios({
+      method:'post',
+      url:'http://localhost:3001/recipe',
+      data:
+      obj={
+          ...input, ...diets
+      }
+    })
+
+        
+    
+  }
 
   function handleChange2(e) {
     let flag= false
@@ -54,8 +70,10 @@ export default function Recipes() {
   // }
 
 
-  return (
-    <form onSubmit={handleSubmit} className="container">
+  return (      
+   
+    <form onSubmit={handleSubmit} className="container_12">
+      <h1>Create your own recipe here!</h1>
      <label for="nya">Recipe Name:</label>      
       <br />
       <input type="text" name="title" onChange={handleChange} />
@@ -81,11 +99,15 @@ export default function Recipes() {
         <li><input onChange={handleChange2} id='9' type="checkbox" name='diets' value="primal"></input><label for="9">Primal</label></li>
         <li><input onChange={handleChange2} id='10' type="checkbox" name='diets' value="whole30"></input><label for="10">Whole30</label></li>
         </ul>
-        
       <br />
-      
-     
-      <input type="submit" value="Enviar" />
+      <label for="nya">Description:</label>      
+      <br />
+      <input type="text" name="description" onChange={handleChange} />
+      <br />
+      <label>Steps</label>
+      <textarea name="steps" rows="10" cols="50"onChange={handleChange}></textarea>
+      <br />      
+      <input type="submit" value="enviar" />
     </form>
   );
 }

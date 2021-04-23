@@ -8,7 +8,7 @@ const Diet= require('./Diet')
 module.exports = (sequelize) => {
   // defino el modelo
   const Recipe= sequelize.define('recipe', {
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -17,18 +17,19 @@ module.exports = (sequelize) => {
       primaryKey: true,
       
     },
-    description: {
+    dishType: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    rating: {
+    description: {
+      type: DataTypes.STRING
+    },
+    healthScore: {
       type: DataTypes.INTEGER
     },
-    healthyRating: {
-      type: DataTypes.INTEGER
-    },
-    instructions: {
+    steps: {
       type: DataTypes.TEXT,
     }
+
   });
 }

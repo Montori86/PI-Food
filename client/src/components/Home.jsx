@@ -8,9 +8,9 @@ export default function Home() {
   const arrayRecipes = useSelector((state) => state.recipes);
   const arrayDiets = useSelector((state) => state.diets);
   const [order, setOrder] = useState("");
-
-
-  let aux = "";
+  
+ var aux =[];
+  
 
 
 
@@ -32,15 +32,18 @@ export default function Home() {
     }
   }
 
-  function handleChange(e) {
-    aux = e.target.value;
+  function handleChange(e) {      
+    console.log(aux)
+   aux =e.target.value
   }
-
   function handleClick() {
+    
     dispatch(getRecipes(aux));
+
+    
   }
 
- 
+
   
 
 
@@ -52,12 +55,19 @@ export default function Home() {
         </label>
         <input onChange={handleChange} type="text" placeholder="Recipe..." />
         <button onClick={handleClick}>Search</button>
-        <select name="select" id="select">
+        <select name="select" id="select" onChange={handleChange}>
           <option value="select diet">select diet</option>
           <option value="vegan">vegan</option>
+          <option value="lacto ovo vegetarian">lacto ovo vegetarian</option>
+          <option value="ketogenic">ketogenic</option>
+          <option value="vegetarian">vegetarian</option>
+          <option value="lacto vegetarian">lacto vegetarian</option>
           <option value="pescetarian">pescetarian</option>
+          <option value="paleo">paleo</option>
+          <option value="primal">primal</option>
+          <option value="whole30">whole30</option>
         </select>
-        <button onClick={handleFilter}>Filter</button>
+        <button onClick={handleClick}>Filter</button>
         {arrayDiets.map((diets) => {
           return <h3>{diets}</h3>;
         })}
@@ -76,7 +86,7 @@ export default function Home() {
       </div>
       <br>
       </br>
-      {/* {arrayRecipes.map((recipe) => {
+      {/* {arrayRecipes.data.map((recipe) => {
         return (
           <div className="contenedor-principal" key={recipe.id}>
             <div className="caja-receta">

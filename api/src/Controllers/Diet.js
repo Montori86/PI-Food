@@ -10,7 +10,7 @@ async function getAllDiets(req, res, next) {
     e.diets.forEach(async (e) => {
       await Diet.findOrCreate({
         where: {
-          name: e,
+          title: e,
         },
       });
     });

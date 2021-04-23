@@ -4,11 +4,12 @@ import { getDetails } from "../../src/Redux/actions.js";
 import { NavLink } from "react-router-dom";
 
 export default function Datail(props) {
+
   const dispatch = useDispatch();
-  const arrayDetails = useSelector((state) => state.detail);
-  
+  const arrayDetails = useSelector((state) => state.detail);  
   let id = props.match.params.id;
-  console.log(arrayDetails);
+
+  
   useEffect(() => {
     dispatch(getDetails(id));
     

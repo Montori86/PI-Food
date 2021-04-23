@@ -12,10 +12,10 @@ import Card from "./components/Card.jsx"
 function App() {
   return (
     <React.Fragment>
-      <Route path="/home" component={Navbar} />
       <Route exact path="/" component={Welcome} />
-      <Route path="/addrecipe" component={Recipes} />
-      <Route path="/home" component={Home} />
+      <Route path="/home" component={Navbar} />
+      <Route path="/home" component={Home} />      
+      <Route path="/addrecipe" component={Recipes} />      
       <Route path="/home" component={Card} />
       <Route path="/details/:id" component={Details} />
     </React.Fragment>

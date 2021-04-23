@@ -9,21 +9,22 @@ const initialState = {
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_RECIPES:
+      
       return { ...state, recipes: action.payload };
-
+      
     case FILTER_FOR_DIET:
-      let filter = [];
-
-      for (let i = 0; i < state.recipes.length; i++) {
-        let recipes = state.recipes[i];
-        for (let diets of recipes.diets) {
+      let filter = [];     
+        let recipes = state.recipes;
+        console.log(action.payload)
+        for (let diets in recipes.diets) {
           if (diets.length > 0) {
-            filter.push(diets);
+            filter.push(recipes);
+            
           }
         }
         // let dietRecipe = state.recipes[i].diets.filter(diet => diet === action.payload)
         // if (dietRecipe.length < 0){filter.push(dietRecipe)}
-      }
+      
 
       return {
         ...state,
