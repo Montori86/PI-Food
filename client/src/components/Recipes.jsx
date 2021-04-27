@@ -73,12 +73,13 @@ export default function Recipes() {
   return (      
    
     <form onSubmit={handleSubmit} className="container_12">
+     
       <h1>Create your own recipe here!</h1>
      <label for="nya">Recipe Name:</label>      
       <br />
       <input type="text" name="title" onChange={handleChange} />
       <br />
-      <label for="score">Score:</label><input name="healthScore" type="range"min="0" max="100" onChange={handleChange} ></input>
+      <label for="score" >Score:</label><input name="healthScore" className="slider" type="range"min="0" max="100"  onChange={handleChange} ></input>
       <br />
       <label for="nya">Type:</label>
       <br />
@@ -107,7 +108,7 @@ export default function Recipes() {
       <label>Steps</label>
       <textarea name="steps" rows="10" cols="50"onChange={handleChange}></textarea>
       <br />      
-      <input type="submit" value="enviar" />
+      <input type="submit" value="CREATED" className="boton1"/>
     </form>
   );
 }

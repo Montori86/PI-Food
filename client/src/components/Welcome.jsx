@@ -12,7 +12,7 @@ export default function Index() {
               <div className="banner-cell">
                 <h1>Cook with us!</h1>
 
-                <h2>Accidental appearances </h2>
+                <h2>Was Coincidence </h2>
                 <a href="#about">
                   <div className=""></div>
                   <div className="book-btn">
