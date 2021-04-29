@@ -21,15 +21,15 @@ async function addRecipe(req, res, next) {
       
     });    
     diets.forEach(async diet => {
-      if (Diet.findOrCreate({where: {name: diets}})){
+    Diet.findOrCreate({where: {name: diet}})
       let idDiet= await Diet.findOne({
         where: {
-          name: diets
+          name: diet
         }
       })
       await newRecipe.addDiet(idDiet)
       }
-    })
+    )
 
     res.send("Recipe added");
   } else {
@@ -52,7 +52,7 @@ async function getAllRecipes(req, res, next) {
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${name}&addRecipeInformation=true`
     );
     res.status(200).send(recipeDB.concat(recipeApi.data.results));
-    // res.status(200).send(recipeDB);
+    
   } else {
     const recipeApi = await axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`

@@ -10,22 +10,25 @@ module.exports = (sequelize) => {
   const Recipe= sequelize.define('recipe', {
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     id: {
       type: UUID,
-      primaryKey: true,
+      allowNull: true,
+      primaryKey: true
       
     },
     dishType: {
       type: DataTypes.TEXT,
-      allowNull: false,
+    
     },
     description: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     healthScore: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     steps: {
       type: DataTypes.TEXT,

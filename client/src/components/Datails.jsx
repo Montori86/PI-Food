@@ -19,14 +19,12 @@ export default function Datail(props) {
   return (
     <div   >
       <div>
-        <NavLink to={`/home`}>
-          <button>Home</button>
-        </NavLink>
+       
       </div>
       Detalle de la recetas
       <h3>{arrayDetails?.name}</h3>      
       <h3>{arrayDetails?.diet}</h3>
-      <p>{arrayDetails?.description}</p>
+      <p>{arrayDetails?.description.replace(/(<([^>]+)>)/ig, '')}</p>
       <p>{arrayDetails?.healthScore}</p>
       <p>{arrayDetails?.steps}</p>
     </div>

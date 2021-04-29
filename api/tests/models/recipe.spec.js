@@ -1,6 +1,10 @@
 const { Recipe, conn } = require('../../src/db.js');
 const { expect } = require('chai');
 
+
+
+
+
 describe('Recipe model', () => {
   before(() => conn.authenticate()
     .catch((err) => {
@@ -15,7 +19,10 @@ describe('Recipe model', () => {
           .catch(() => done());
       });
       it('should work when its a valid name', () => {
-        Recipe.create({ name: 'Milanesa a la napolitana' });
+        Recipe.create({ title:"Milanesa a la napolitana", id: 5, healthScore: 63,description: "EL PLATO" });
+      });
+      it('should work when its a valid number', () => {
+        Recipe.create({ title:"Milanesa a la napolitana", id: 45, healthScore:5,description: "EL PLATO"});
       });
     });
   });

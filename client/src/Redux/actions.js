@@ -11,7 +11,7 @@ export  function getRecipes(name) {
  
   return async (dispatch) => {
     const requestApi = await axios.get(`http://localhost:3001/recipe?name=${name}`); 
-  
+    
     dispatch({
       type: "GET_RECIPES",
       payload: requestApi.data,
@@ -35,12 +35,12 @@ export  function getDiet(diet){
   if (diet){
 
   return async (dispatch) => {
-    const requestApi = await axios.get(`http://localhost:3001/recipe?diets=${diet}`);
-    console.log(requestApi)
+    const requestApi = await axios.get(`http://localhost:3001/recipe`);
+    
     dispatch({
       type: "FILTER_FOR_DIET",
       payload: requestApi.data,
-      
+      diets: diet
      
     });
   };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipes, getDiet, getOrder } from "../../src/Redux/actions.js";
-
+import './Home.css'
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export default function Home() {
   const [filtered, setFiltered] = useState([]);
  
   var aux ="";
-  
+  console.log(arrayRecipes)
 
 const AZ = (a, b) => { return b.title > a.title ? 1 : -1 }
 const ZA = (a, b) => { return a.title > b.title ? 1 : -1 }
@@ -53,7 +53,7 @@ function handleOrder (e){
   setOrder(e.target.value)
 }
 
-  function handleFilter (e)  {
+  function handleFilter ()  {
     dispatch(getDiet(aux))
     
   }
@@ -75,12 +75,14 @@ function handleOrder (e){
   return (
     <div className="contenedor-principal">
       <div>
+        <br>
+        </br>
         <label htmlFor="header-search">
           <span>Search recipes</span>
         </label>
-        <input onChange={handleChange} type="text" placeholder="Recipe..." />
-        <button onClick={handleClick}>Search</button>
-        <select name="select" id="select" onChange={handleChange}>
+        <input className="bot" onChange={handleChange} type="text" placeholder="Recipe..." />
+        <button className="bot2" onClick={handleClick}>Search</button>
+        <select className="bot3" name="select" id="select" onChange={handleChange}>
           <option value="select diet">select diet</option>
           <option value="vegan">vegan</option>
           <option value="lacto ovo vegetarian">lacto ovo vegetarian</option>
@@ -90,13 +92,14 @@ function handleOrder (e){
           <option value="pescetarian">pescetarian</option>
           <option value="paleo">paleo</option>
           <option value="primal">primal</option>
+          <option value="gluten free">gluten free</option>
           <option value="whole30">whole30</option>
         </select>
-        <button onClick={handleFilter}>Filter</button>
+        <button className="bot2" onClick={handleFilter}>Filter</button>
         
         <div >
           <label>Ordenar por: </label>
-          <select value={order} onChange={handleOrder} >
+          <select className="bot3" value={order} onChange={handleOrder} >
             <option value="" selected>Options</option>
             <option value="AZ">Nombre ↑</option>
             <option value="ZA">Nombre ↓</option>

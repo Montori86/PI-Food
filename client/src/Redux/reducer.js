@@ -11,33 +11,41 @@ const initialState = {
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_RECIPES:
-      // let db = [];
-      // if (action.payload[0].id > 6)
-        return { ...state, recipes: action.payload };
-  //     }else{
-  //     // console.log(action.payload[0].id)
-  //    for (let recipe of action.payload) {       
-      
-
-  //     let dataDB = recipe.id.filter(id => id.length < 6)
-  //     console.log(dataDB)
-  //     // if (recipesDB.length > 0) {
-       
-  //     //   db.push(recipe);
-        
-  //     // }
-  //   }
-  //    return { ...state, recipes: db };
-   
-      
-      
+      action.payload.map(recipe => {
+        if (recipe.id.length > 10){
+         recipe.diets = recipe.diets.map(diet =>{
+            return diet.name
+          })
+        }
+      })
+     return {
+       ...state, 
+       recipes: action.payload
+     }
+     
     case FILTER_FOR_DIET:
-      let filter = [];   
+      let filter = [];  
+      
+      if (state.filter.length > 0){
+        for (let recipe of state.filter) {       
+          let dietRecipe = recipe.diets.filter(d => d === action.diets )           
+          if (dietRecipe.length > 0) {
            
-        for (let recipe of state.recipes) {       
-          
-          let dietRecipe = recipe.diets.filter(diet => diet === action.payload)
-          
+            filter.push(recipe);
+            
+          }
+        }
+      
+        return {
+          ...state,
+          diets: filter,
+          filter: filter
+        }
+      }
+        for (let recipe of action.payload) {       
+         
+          let dietRecipe = recipe.diets.filter(d => d === action.diets )
+            
           if (dietRecipe.length > 0) {
            
             filter.push(recipe);
