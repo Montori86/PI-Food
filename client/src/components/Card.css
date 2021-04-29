@@ -21,14 +21,14 @@
         -moz-transform:scale(1)
   }
   
-  .container {
+  .container22 {
     width: 100%;   
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
- .cardsdiv{
+ .cardsdiv22{
   width: 100%;   
   display: flex;
   align-items: center;

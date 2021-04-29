@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipes, getDiet, getOrder } from "../../src/Redux/actions.js";
-import './Home.css'
+import "./Home.css";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -9,80 +9,105 @@ export default function Home() {
   const arrayDiets = useSelector((state) => state.diets);
   const [order, setOrder] = useState("");
   const [filtered, setFiltered] = useState([]);
- 
-  var aux ="";
-  console.log(arrayRecipes)
 
-const AZ = (a, b) => { return b.title > a.title ? 1 : -1 }
-const ZA = (a, b) => { return a.title > b.title ? 1 : -1 }
-const MIN = (a, b) => { return b.healthScore - a.healthScore }
-const MAX = (a, b) => { return a.healthScore - b.healthScore }
+  var aux = "";
 
- 
+  const AZ = (a, b) => {
+    return b.title > a.title ? 1 : -1;
+  };
+  const ZA = (a, b) => {
+    return a.title > b.title ? 1 : -1;
+  };
+  const MAX = (a, b) => {
+    return b.aggregateLikes - a.aggregateLikes;
+  };
+  const MIN = (a, b) => {
+    return a.aggregateLikes - b.aggregateLikes;
+  };
 
+  useEffect(() => {
+    if (arrayDiets.length > 0) {
+      switch (order) {
+        case "AZ":
+          setFiltered(...arrayDiets.sort(ZA));
+          break;
+        case "ZA":
+          setFiltered(...arrayDiets.sort(AZ));
+          break;
+        case "MAX":
+          setFiltered(...arrayDiets.sort(MAX));
+          break;
+        case "MIN":
+          setFiltered(...arrayDiets.sort(MIN));
+          break;
+        default:
+          setFiltered(arrayDiets);
+      }
 
-useEffect(() => {
-  
-  switch (order) {
-        case 'AZ':   setFiltered([...arrayRecipes].sort(AZ));
-        break;
-        case 'ZA':  setFiltered ([...arrayRecipes].sort(ZA));
-        break;
-        case 'MAX':  setFiltered([...arrayRecipes].sort(MAX));
-        break;
-        case 'MIN': setFiltered([...arrayRecipes].sort(MIN));
-        break;
-        default:  setFiltered ([...arrayRecipes])
+      dispatch(getOrder(filtered));
+    } else {
+      switch (order) {
+        case "AZ":
+          setFiltered(...arrayRecipes.sort(ZA));
+          break;
+        case "ZA":
+          setFiltered(...arrayRecipes.sort(AZ));
+          break;
+        case "MAX":
+          setFiltered(...arrayRecipes.sort(MAX));
+          break;
+        case "MIN":
+          setFiltered(...arrayRecipes.sort(MIN));
+          break;
+        default:
+          setFiltered(arrayRecipes);
+      }
+
+      dispatch(getOrder(filtered));
     }
-    
-   dispatch(getOrder(filtered)) 
-
-},[order])
-
-
-
-
-
+  }, [order]);
 
   useEffect(() => {
     dispatch(getRecipes());
   }, []);
 
-
-function handleOrder (e){
-  setOrder(e.target.value)
-}
-
-  function handleFilter ()  {
-    dispatch(getDiet(aux))
-    
+  function handleOrder(e) {
+    setOrder(e.target.value);
   }
 
-  function handleChange(e) {      
- 
-   aux =e.target.value
+  function handleFilter() {
+    dispatch(getDiet(aux));
+  }
+
+  function handleChange(e) {
+    aux = e.target.value;
   }
   function handleClick() {
-    
     dispatch(getRecipes(aux));
-    
   }
-
-
-
-
 
   return (
     <div className="contenedor-principal">
       <div>
-        <br>
-        </br>
+        <br></br>
         <label htmlFor="header-search">
           <span>Search recipes</span>
         </label>
-        <input className="bot" onChange={handleChange} type="text" placeholder="Recipe..." />
-        <button className="bot2" onClick={handleClick}>Search</button>
-        <select className="bot3" name="select" id="select" onChange={handleChange}>
+        <input
+          className="bot"
+          onChange={handleChange}
+          type="text"
+          placeholder="Recipe..."
+        />
+        <button className="bot2" onClick={handleClick}>
+          Search
+        </button>
+        <select
+          className="bot3"
+          name="select"
+          id="select"
+          onChange={handleChange}
+        >
           <option value="select diet">select diet</option>
           <option value="vegan">vegan</option>
           <option value="lacto ovo vegetarian">lacto ovo vegetarian</option>
@@ -95,28 +120,26 @@ function handleOrder (e){
           <option value="gluten free">gluten free</option>
           <option value="whole30">whole30</option>
         </select>
-        <button className="bot2" onClick={handleFilter}>Filter</button>
-        
-        <div >
+        <button className="bot2" onClick={handleFilter}>
+          Filter
+        </button>
+
+        <div>
           <label>Ordenar por: </label>
-          <select className="bot3" value={order} onChange={handleOrder} >
-            <option value="" selected>Options</option>
+          <select className="bot3" value={order} onChange={handleOrder}>
+            <option value="" selected>
+              Options
+            </option>
             <option value="AZ">Nombre ↑</option>
             <option value="ZA">Nombre ↓</option>
             <option value="MAX">Puntuacion ↑</option>
             <option value="MIN">Puntuacion ↓</option>
-            
           </select>
-         
         </div>
       </div>
-      <br>
-      </br>
-        <h3>Your selection:</h3>
-      <br>
-  
-      </br>
-     
-  </div>
+      <br></br>
+      <h3>Your selection:</h3>
+      <br></br>
+    </div>
   );
 }

@@ -9,7 +9,6 @@ export default function Recipes() {
   const [input, setInput] = useState({
     title: "",
     dishType: "",
-    // diets: "",
     description: "",
     healthScore: "",
     steps: "",
@@ -24,6 +23,7 @@ export default function Recipes() {
  
 
  async function handleSubmit(e) {
+   alert('Se creo la receta!!')
     var obj = {}    
     await axios({
       method:'post',
@@ -65,29 +65,30 @@ export default function Recipes() {
     });
 }
 
-  // function handleScore(e) {
-  //   console.log(e.target.value)
-  // }
 
 
   return (      
    
     <form onSubmit={handleSubmit} className="container_12">
-     
-      <h1>Create your own recipe here!</h1>
-     <label for="nya">Recipe Name:</label>      
+      <nav className="box">              
+          <div className="btn"><a href="/home">Home</a></div>
+          <div className="btn2"><a>Create your own recipe here!</a></div>            
+    </nav>
+     <br>
+     </br>
+     <label for="nya"className="btn2" >Recipe Name:</label>      
       <br />
-      <input type="text" name="title" onChange={handleChange} />
+      <input type="text" name="title" className="b2" onChange={handleChange} required />
       <br />
-      <label for="score" >Score:</label><input name="healthScore" className="slider" type="range"min="0" max="100"  onChange={handleChange} ></input>
+      <label for="score" className="btn2">Score:</label><input name="healthScore" className="slider" type="range" min="0" max="100"  onChange={handleChange} required ></input>
       <br />
-      <label for="nya">Type:</label>
+      <label for="nya" className="btn2">Type:</label>
       <br />
-      <input type="text" name="dishType" onChange={handleChange} />
+      <input type="text" name="dishType" className="b2" onChange={handleChange} required />
       <br />
       <br />
         <ul>
-        <li><input onChange={handleChange2} id='1' type="checkbox" name='diets' value="Gluten Free"></input><label for="1">Gluten Free</label></li>
+        <li><input  onChange={handleChange2} id='1' type="checkbox" name='diets' value="Gluten Free"></input><label for="1">Gluten Free</label></li>
         <li><input onChange={handleChange2} id='2' type="checkbox" name='diets' value="ketogenic"></input><label for="2">Ketogenic</label></li>
         <li><input onChange={handleChange2} id='3' type="checkbox" name='diets' value="vegetarian"></input><label for="3">Vegetarian</label></li>
         <li><input onChange={handleChange2} id='4' type="checkbox" name='diets' value="lacto vegetarian"></input><label for="4">Lacto-Vegetarian</label></li>
@@ -101,12 +102,12 @@ export default function Recipes() {
         <li><input onChange={handleChange2} id='10' type="checkbox" name='diets' value="whole30"></input><label for="10">Whole30</label></li>
         </ul>
       <br />
-      <label for="nya">Description:</label>      
+      <label for="nya"className="btn2">Description:</label>      
       <br />
-      <input type="text" name="description" onChange={handleChange} />
+      <input className="b3" type="text" name="description" onChange={handleChange} required/>
       <br />
-      <label>Steps</label>
-      <textarea name="steps" rows="10" cols="50"onChange={handleChange}></textarea>
+      <label className="btn2">Steps</label>
+      <textarea className="b3" name="steps" rows="10" cols="50"onChange={handleChange} required></textarea>
       <br />      
       <input type="submit" value="CREATED" className="boton1"/>
     </form>

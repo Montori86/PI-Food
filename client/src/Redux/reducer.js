@@ -18,9 +18,11 @@ export default function rootReducer(state = initialState, action) {
           })
         }
       })
-     return {
-       ...state, 
-       recipes: action.payload
+     return {       
+       recipes: action.payload,
+       diets: [],
+       datail: {},
+       filter:[]
      }
      
     case FILTER_FOR_DIET:

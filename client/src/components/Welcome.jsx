@@ -5,7 +5,7 @@ import "./Welcome.css";
 export default function Index() {
   return (
     <div id="banner" className="banner full-screen-mode parallax">
-      <div className="container">
+      <div className="container1">
         <div className="">
           <div className="banner-static">
             <div className="banner-text">

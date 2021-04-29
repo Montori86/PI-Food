@@ -22,7 +22,7 @@ export default function Card() {
     }
   });
 
- 
+
 
   useEffect(() => {
     setMax(show.length - 5);
@@ -37,8 +37,8 @@ export default function Card() {
   };
 
   return (
-    <div className="container">
-      <div className="cardsdiv"> 
+    <div className="container22">
+      <div className="cardsdiv22"> 
         {show?.slice(page, page + 5).map((recipe) => {
           return (
             <div className="card" key={recipe.id}>
