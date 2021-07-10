@@ -27,8 +27,12 @@ Node.js.
 
 Redux.
 
+Express.
+
+Sequelize.
 
 
+[![ExpressJS](https://github.com/MarioTerron/logo-images/blob/master/logos/expressjs.png)](http://expressjs.com///)
 ![image](https://user-images.githubusercontent.com/74310843/119369286-628f4f80-bc8a-11eb-8075-6e60ac46d531.png)
 ![image](https://user-images.githubusercontent.com/74310843/119369139-383d9200-bc8a-11eb-9b88-64f31ccb250c.png)
 ![image](https://user-images.githubusercontent.com/74310843/119369156-3d9adc80-bc8a-11eb-9a37-7fb6aba9af37.png)
