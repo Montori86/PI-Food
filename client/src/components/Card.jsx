@@ -60,8 +60,8 @@ export default function Card() {
       </div>
 
       <div>
-        <button className="boton" onClick={prevPage}>{"<--"}</button>
-        <button className="boton" onClick={nextPage}>{"-->"}</button>
+        <button className="page" onClick={prevPage}>{"<"}</button>
+        <button className="page" onClick={nextPage}>{">"}</button>
       </div>
     </div>
   );

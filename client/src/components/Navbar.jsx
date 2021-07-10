@@ -6,8 +6,8 @@ export default function NavBar() {
     return (
     <nav className="box">              
           
-          <div className="btn2"><a href="/">Cook with us!</a></div> 
-          <div className="btn"><a href="/addrecipe">Create your recipe</a></div>              
+          <a className="btn2" href="/">Cook with us!</a>
+          <a className="btn" href="/addrecipe">Add your recipe</a>            
     </nav>
     )
 }

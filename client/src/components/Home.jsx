@@ -138,7 +138,7 @@ export default function Home() {
         </div>
       </div>
       <br></br>
-      <h3>Your selection:</h3>
+     
       <br></br>
     </div>
   );
