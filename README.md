@@ -5,7 +5,7 @@
 <p align="right">
   <img height="200" src="./cooking.png" />
 </p>
-# Food App 
+
 
 With this App you will be able to search for the recipes that you always wanted to make.
 Be a professional cook with these recipes
