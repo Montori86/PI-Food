@@ -90,18 +90,7 @@ export default function Home() {
     <div className="contenedor-principal">
       <div>
         <br></br>
-        <label htmlFor="header-search">
-          <span>Search recipes</span>
-        </label>
-        <input
-          className="bot"
-          onChange={handleChange}
-          type="text"
-          placeholder="Recipe..."
-        />
-        <button className="bot2" onClick={handleClick}>
-          Search
-        </button>
+    
         <select
           className="bot3"
           name="select"
