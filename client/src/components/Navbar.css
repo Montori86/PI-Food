@@ -45,7 +45,7 @@ a {
 .btn2{
   font-family: 'nautilus_pompiliusregular';
   text-decoration: none;
-  padding: 10px;
+  padding: 8px;
   font-weight: 300;
   font-size: 5vh;
   color: #e75b1e;
@@ -61,4 +61,26 @@ a {
     /* background-color:#e75b1e; */
     /* text-decoration: none; */
     /* color: #e75b1e */
+}
+.btn3{
+  width: 25%;  
+  text-decoration:solid;
+  padding: 2px;
+  font-weight: 200;
+  font-size: 17px;
+  color: #6b6666;
+  background-color:white;
+  border-radius: 6px;
+  border: 2px solid #6b6666;
+ 
+ 
+  
+}
+
+.btn3:hover{
+  color: #e75b1e;
+    background-color:white;
+    text-decoration: none;
+    color:#f3eeec;
+    
 }

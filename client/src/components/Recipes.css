@@ -19,25 +19,32 @@
 }
 
 .boton1{
+  font-family: 'nautilus_pompiliusregular';
   text-decoration: none;
-  padding: 10px;
-  font-weight: 300;
-  font-size: 20px;
-  color: #e75b1e;
-  background-color:#e2d8d4;
-  border-radius: 6px; 
-  border: 2px solid #e75b1e;
- 
+    padding:1px;
+    padding-bottom: 5px;
+    padding-inline-end:1%;
+    
+    font-size: 4vh;
+    color: #ffffff;
+    background-color:transparent;
+    border-radius: 6px;
+    border: 2px solid #e75b1e;
+}
+.boton1:hover{
+  color: black;
+    background-color:#e75b1e;
+    text-decoration: none;
+  border: 2px solid #111111;
 }
 
-
 .b{
-  width: 15%;  
+  width: 10%;  
   text-decoration:solid;
-  padding: 2px;
+  padding: 9px;
   font-weight: 200;
-  font-size: 17px;
-  color: #6b6666;
+  font-size: 4vh;
+  color: white;
   background-color:transparent;
   border-radius: 6px;
   border: 2px solid #6b6666;

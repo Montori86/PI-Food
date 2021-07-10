@@ -18,7 +18,6 @@ export default function Recipes() {
     diets: []
   })
 
-
   
  
 
@@ -58,7 +57,7 @@ export default function Recipes() {
    function handleChange(e) {
     const value = e.target.value;
     const name = e.target.name
-
+   
     setInput({
         ...input,
         [name]: value
@@ -66,12 +65,11 @@ export default function Recipes() {
 }
 
 
-
   return (      
    
     <form onSubmit={handleSubmit} className="container_12">
       <nav className="box">              
-          <div className="btn"><a href="/home">Home</a></div>
+          <a className="b" href="/home">Go Back</a>
           <div className="btn2"><a>Create your own recipe here!</a></div>            
     </nav>
      <br>
@@ -80,7 +78,8 @@ export default function Recipes() {
       <br />
       <input type="text" name="title" className="b2" onChange={handleChange} required />
       <br />
-      <label for="score" className="btn2">Score:</label><input name="healthScore" className="slider" type="range" min="0" max="100"  onChange={handleChange} required ></input>
+      <label for="score" className="btn2">Score: <output >{input.healthScore}%</output></label><input name="healthScore" className="slider" type="range" min="0" max="100" onChange={handleChange} required ></input>
+     
       <br />
       <label for="nya" className="btn2">Type:</label>
       <br />
@@ -109,7 +108,7 @@ export default function Recipes() {
       <label className="btn2">Steps</label>
       <textarea className="b3" name="steps" rows="10" cols="50"onChange={handleChange} required></textarea>
       <br />      
-      <input type="submit" value="CREATED" className="boton1"/>
+      <input type="submit" value="CREAT" className="boton1"/>
     </form>
   );
 }
