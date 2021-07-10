@@ -13,7 +13,7 @@ Be a professional cook with these recipes
 # Instalation::wrench:
 📝 Do a npm install to view the application.
 
-# Technologies used:
+# Technologies used: :computer:
 
 Javascript.
 
