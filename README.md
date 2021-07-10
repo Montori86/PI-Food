@@ -1,10 +1,38 @@
-<p align='left'>
-    <img src='https://static.wixstatic.com/media/85087f_0d84cbeaeb824fca8f7ff18d7c9eaafd~mv2.png/v1/fill/w_160,h_30,al_c,q_85,usm_0.66_1.00_0.01/Logo_completo_Color_1PNG.webp' </img>
-</p>
+
 
 # Food App
 
 <p align="right">
   <img height="200" src="./cooking.png" />
 </p>
+# Food App :pizza::fork_and_knife::wine_glass:
+
+With this App you will be able to search for the recipes that you always wanted to make.
+Be a professional cook with these recipes
+
+# Instalation::wrench:
+📝 Do a npm install to view the application.
+
+# Technologies used:
+
+Javascript.
+
+HTML.
+
+React.js.
+
+CSS.
+
+Node.js.
+
+Redux.
+
+
+
+![image](https://user-images.githubusercontent.com/74310843/119369286-628f4f80-bc8a-11eb-8075-6e60ac46d531.png)
+![image](https://user-images.githubusercontent.com/74310843/119369139-383d9200-bc8a-11eb-9b88-64f31ccb250c.png)
+![image](https://user-images.githubusercontent.com/74310843/119369156-3d9adc80-bc8a-11eb-9a37-7fb6aba9af37.png)
+![image](https://user-images.githubusercontent.com/74310843/119369186-44c1ea80-bc8a-11eb-8db0-73ca8560125e.png)
+![image](https://user-images.githubusercontent.com/74310843/119369243-54413380-bc8a-11eb-9855-3c5c93013bbd.png)
+![image](https://user-images.githubusercontent.com/74310843/119370952-48ef0780-bc8c-11eb-9eab-e3722d828437.png)
 
