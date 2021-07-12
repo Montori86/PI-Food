@@ -19,12 +19,13 @@ export default function Datail(props) {
   return (
     <div className="bkc1">
       <div className="bkc2">      
-      <h1>Detalle de la recetas</h1>
-      <h3 className="">{arrayDetails?.name}</h3>      
-      <h3 className="">{arrayDetails?.diet}</h3>
+      <h1 className="">{arrayDetails?.name}</h1>      
+      <img className="image" src={arrayDetails?.image} /><h3 className="score">Score: {arrayDetails?.healthScore}</h3>
+      <h3>Diets: {arrayDetails?.diet}</h3>
+      <h3 className="">Step to step</h3>
       <p className="">{arrayDetails?.description.replace(/(<([^>]+)>)/ig, '')}</p>
-      <h3 className="score">Score:</h3>
-      <p className="">{arrayDetails?.healthScore}</p>
+      
+      
       <p className="">{arrayDetails?.steps}</p>
       </div>
       <NavLink to={`/home`}>

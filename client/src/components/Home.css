@@ -51,10 +51,10 @@
     padding: 2px;
     font-weight: 200;
     font-size: 17px;
-    color: #6b6666;
+    color: #080808;
     background-color:transparent;
     border-radius: 6px;
-    border: 3px solid #6b6666;
+    border: 3px solid #050505;
    
    
     
@@ -66,4 +66,17 @@
       text-decoration: none;
       color:#f3eeec;
       
+  }
+  .btn22{
+    font-family: 'nautilus_pompiliusregular';
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 300;
+    font-size: 5vh;
+    color: #0a0a0a;
+    background-color:transparent;
+    
+    /* border-radius: 6px; */
+    /* border: 2px solid #f3eeec; */
+   
   }

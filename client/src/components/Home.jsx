@@ -3,13 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRecipes, getDiet, getOrder } from "../../src/Redux/actions.js";
 import "./Home.css";
 
+
+
+
+
 export default function Home() {
   const dispatch = useDispatch();
   const arrayRecipes = useSelector((state) => state.recipes);
   const arrayDiets = useSelector((state) => state.diets);
   const [order, setOrder] = useState("");
   const [filtered, setFiltered] = useState([]);
-
+  
+ 
   var aux = "";
 
   const AZ = (a, b) => {
@@ -85,14 +90,13 @@ export default function Home() {
   function handleClick() {
     dispatch(getRecipes(aux));
   }
-
+ 
   return (
     <div className="contenedor-principal">
       <div>
         <br></br>
-    
-        <select
-          className="bot3"
+
+        <select className="bot3"
           name="select"
           id="select"
           onChange={handleChange}
@@ -113,8 +117,7 @@ export default function Home() {
           Filter
         </button>
 
-        <div>
-          <label>Ordenar por: </label>
+          <label className="btn22">Order by: </label>
           <select className="bot3" value={order} onChange={handleOrder}>
             <option value="" selected>
               Options
@@ -124,10 +127,10 @@ export default function Home() {
             <option value="MAX">Puntuacion ↑</option>
             <option value="MIN">Puntuacion ↓</option>
           </select>
-        </div>
+        
       </div>
       <br></br>
-     
+
       <br></br>
     </div>
   );

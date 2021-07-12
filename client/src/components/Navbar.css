@@ -21,8 +21,7 @@ a {
 }
 
 
-.btn{
- 
+.btn{ 
   font-family: 'nautilus_pompiliusregular';
   text-decoration: none;
     padding:1px;
@@ -38,7 +37,7 @@ a {
 .btn:hover{
   color: black;
     background-color:#e75b1e;
-    text-decoration: none;
+    
   border: 2px solid #111111;
 }
 

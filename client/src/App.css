@@ -1,3 +1,19 @@
+
+  body{
+    background:url('https://www.futurebrand.com/uploads/_sliderHd/Ble%CC%81dina-Carrot.jpg') no-repeat center top;
+    background-size:cover;
+  }
+
+
+/*   
+  img {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      border-radius: 30%;
+    } */
+
 .App {
   text-align: center;
 }

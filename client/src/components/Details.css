@@ -47,3 +47,12 @@
       color:#f3eeec;
       
   }
+
+  .image{
+    width: 25%;
+   border-radius:50%;
+   border-color: black;
+   border-style:outset;
+
+  
+  }

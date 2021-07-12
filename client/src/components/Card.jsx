@@ -44,7 +44,7 @@ export default function Card() {
             <div className="card" key={recipe.id}>
               <div>
                 <h4 className="text1">{recipe.title}</h4>
-                <img src={recipe.image} />
+                <img className="img1"src={recipe.image} />
                 <p>
                   {"Diets: "}
                   
