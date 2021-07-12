@@ -8,7 +8,7 @@ const {
 
 } = process.env;
 
-const seuqelize = process.env.MODE_ENV === "production"
+const sequelize = process.env.MODE_ENV === "production"
   ? new Sequelize({
     database: DB_NAME, 
     dialect: "postgres",
