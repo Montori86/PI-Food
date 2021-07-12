@@ -26,7 +26,7 @@ export default function Recipes() {
     var obj = {}    
     await axios({
       method:'post',
-      url:'http://localhost:3001/recipe',
+      url:'/recipe',
       data:
       obj={
           ...input, ...diets

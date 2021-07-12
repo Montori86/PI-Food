@@ -28,7 +28,7 @@ conn.sync({ force: false }).then(() => {
   });
 
   async function preLoad(){
-    await axios.get('http://localhost:3001/types')
+    await axios.get('/types')
   }
   preLoad()
 });

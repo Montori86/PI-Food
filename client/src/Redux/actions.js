@@ -10,7 +10,7 @@ export  function getRecipes(name) {
  if (name){
  
   return async (dispatch) => {
-    const requestApi = await axios.get(`http://localhost:3001/recipe?name=${name}`); 
+    const requestApi = await axios.get(`/recipe?name=${name}`); 
     
     dispatch({
       type: "GET_RECIPES",
@@ -20,7 +20,7 @@ export  function getRecipes(name) {
  }else{
 
   return async (dispatch) => {
-    const requestApi = await axios.get("http://localhost:3001/recipe");
+    const requestApi = await axios.get("/recipe");
 
     dispatch({
       type: "GET_RECIPES",
@@ -35,7 +35,7 @@ export  function getDiet(diet){
   if (diet){
 
   return async (dispatch) => {
-    const requestApi = await axios.get(`http://localhost:3001/recipe`);
+    const requestApi = await axios.get(`/recipe`);
     
     dispatch({
       type: "FILTER_FOR_DIET",
@@ -48,7 +48,7 @@ export  function getDiet(diet){
 }else{
 
   return async (dispatch) => {
-    const requestApi = await axios.get("http://localhost:3001/recipe");
+    const requestApi = await axios.get("/recipe");
 
     dispatch({
       type: "GET_RECIPES",
@@ -61,7 +61,7 @@ export  function getDiet(diet){
 export  function getDetails(id){
   
   return async (dispatch) => {
-    const requestApi = await axios.get(`http://localhost:3001/recipe/${id}`);
+    const requestApi = await axios.get(`/recipe/${id}`);
   
     
     dispatch({
