@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node fileName.js",
-    "start:dev": "nodemon fileName.js",
+    "start": "npm i nodemon",
     "test": "mocha -w ./tests/**/*.spec.js"
   },
   "author": "Henry",
@@ -27,6 +26,7 @@
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
     "uuid": "^8.3.2"
+    
   },
   "devDependencies": {
     "supertest-session": "^4.1.0",
