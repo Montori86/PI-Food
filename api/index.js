@@ -20,7 +20,7 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const axios = require("axios");
-require('dotenv').config();
+
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   console.log('DB Conected')
