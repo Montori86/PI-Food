@@ -19,17 +19,17 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const axios = require("axios");
+// const axios = require("axios");
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   console.log('DB Conected')
   server.listen(process.env.PORT, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log('% listening at 3001'); // eslint-disable-line no-console
   });
 
-  async function preLoad(){
-    await axios.get('/types')
-  }
-  preLoad()
-});
+//   async function preLoad(){
+//     await axios.get('/types')
+//   }
+//   preLoad()
+ });
