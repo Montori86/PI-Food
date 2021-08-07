@@ -90,3 +90,23 @@
   padding: 0;
   border-radius: 30%;
 }
+.spinner { 
+  
+  border: 20px solid rgba(0, 0, 0, 0.4);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #e75b1e;
+
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -39,7 +39,8 @@ export default function Card() {
   return (
     <div className="container22">
       <div className="cardsdiv22"> 
-        {show?.slice(page, page + 5).map((recipe) => {
+        {show.length < 1 ?  <div className="spinner"></div> :
+         show?.slice(page, page + 5).map((recipe) => {
           return (
             <div className="card" key={recipe.id}>
               <div>
@@ -55,7 +56,7 @@ export default function Card() {
                 <button className="boton">More Info</button>
               </NavLink>
             </div>
-          );
+          ); 
         })}
       </div>
 

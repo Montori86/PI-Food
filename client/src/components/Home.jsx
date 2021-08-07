@@ -93,7 +93,7 @@ export default function Home() {
  
   return (
     <div className="contenedor-principal">
-      <div>
+      <div>      
         <br></br>
 
         <select className="bot3"
